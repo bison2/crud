@@ -1,0 +1,13 @@
+{% block content %}
+<h1> O usuário logado é {{ user }}</h1>
+
+<h2>A pessoa  {{ nome}} foi editada.</h2>
+<h2>seu id é   {{ pessoa_id}}.</h2>
+<h2>seu slug é {{ pessoa_slug }}.</h2>
+
+<ul>
+    <li><a href="{% url 'exm1:listas' %}">Voltar</a> </li>
+    
+</ul>
+  
+{% endblock %}

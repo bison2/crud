@@ -1,0 +1,23 @@
+
+{% block content %}
+<h1>  O usuário logado é {{ user }}</h1>
+<h1> Este é a pagina listagem de pessoas no banco de dados.</h1>
+{% for pessoa in pessoas %}
+<h2>A pessoa  é {{ pessoa.nome}}.</h2>
+<ul>
+    <li><a href="{{ pessoa.get_absolute_url  }}">detalhe de {{ pessoa.nome }}</a> </li>
+    <li><a href="{% url 'exm1:pessoa' pessoa.id  %}">detalhe url {{ pessoa.nome }}</a> </li>
+    <li><a href="{% url 'exm1:delete' pessoa.id %}">deletar url{{ pessoa.nome }}</a> </li>
+    <li><a href="{% url 'exm1:editar' pessoa.id %}">editar {{pessoa.id}} </a> </li>
+    
+    
+</ul>
+{% endfor %}
+
+<h1>inserir nova pessoas</h1>
+<ul>
+    <li><a href="{% url 'exm1:criar' %}">criar nova pessoa</a> </li>
+    
+</ul>        
+    
+{% endblock %}

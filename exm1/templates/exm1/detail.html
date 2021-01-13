@@ -1,0 +1,14 @@
+{% block content %}
+<h1> O usuário logado é {{ user }}</h1>
+<h1> Este é a pagina detalhes das pessoas.</h1>
+<h2>A pessoa é {{ pessoa.nome}}.</h2>
+<h2>o  seu id é {{ pessoa.id }}</h2>
+<h2> o seu slug é {{pessoa.slug }} </h2>
+<ul>
+    
+    <li><a href="{% url 'exm1:listas' %}">Voltar </a> </li>
+    
+    
+</ul>
+  
+{% endblock %}
