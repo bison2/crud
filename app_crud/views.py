@@ -13,7 +13,7 @@ def lista_pessoas(request):
                 'pessoas': lista,
                 'user': request.user,            
              }
-    return render(request, "exm1/lista.html", context)
+    return render(request, "app_crud/lista.html", context)
 
 def pessoa_id(request, id):
    obj = Pessoa.objects.get(id=id)
@@ -21,7 +21,7 @@ def pessoa_id(request, id):
    context = {
                'pessoa':obj,
                }
-   return render(request, 'exm1/detail.html', context)
+   return render(request, 'app_crud/detail.html', context)
 
 
 def delete(request, id):
@@ -33,7 +33,7 @@ def delete(request, id):
                'pessoa_id':obj.id               
                }
    obj.delete()
-   return render(request, 'exm1/delete.html', context)
+   return render(request, 'app_crud/delete.html', context)
    #return HttpResponse('<h1> O objeto {} foi deletado</h1>'.format(obj.nome))
 
 def editar(request,id):
@@ -47,7 +47,7 @@ def editar(request,id):
                'pessoa_slug':obj.slug
                }
    
-   return render(request, 'exm1/edite.html', context)
+   return render(request, 'app_crud/edite.html', context)
 
    #return HttpResponse('<h1> O objeto foi alterado. Seu novo nome é {} , e seu slug é {}</h1>'.format(obj.nome, obj.slug))
    
@@ -57,5 +57,5 @@ def criar_pessoa(request):
    context = {
                'pessoa':obj
                }
-   return render(request, 'exm1/criar.html', context)
+   return render(request, 'app_crud/criar.html', context)
     #return HttpResponse('<h1>O objeto {} foi criado. Seu id é {}, e seu slug é {}</h1>'.format(obj.nome, obj.id, obj.slug))

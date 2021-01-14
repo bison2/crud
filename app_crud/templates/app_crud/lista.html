@@ -6,9 +6,9 @@
 <h2>A pessoa  é {{ pessoa.nome}}.</h2>
 <ul>
     <li><a href="{{ pessoa.get_absolute_url  }}">detalhe de {{ pessoa.nome }}</a> </li>
-    <li><a href="{% url 'exm1:pessoa' pessoa.id  %}">detalhe url {{ pessoa.nome }}</a> </li>
-    <li><a href="{% url 'exm1:delete' pessoa.id %}">deletar url{{ pessoa.nome }}</a> </li>
-    <li><a href="{% url 'exm1:editar' pessoa.id %}">editar {{pessoa.id}} </a> </li>
+    <li><a href="{% url 'app_crud:pessoa' pessoa.id  %}">detalhe url {{ pessoa.nome }}</a> </li>
+    <li><a href="{% url 'app_crud:delete' pessoa.id %}">deletar url{{ pessoa.nome }}</a> </li>
+    <li><a href="{% url 'app_crud:editar' pessoa.id %}">editar {{pessoa.id}} </a> </li>
     
     
 </ul>
@@ -16,7 +16,7 @@
 
 <h1>inserir nova pessoas</h1>
 <ul>
-    <li><a href="{% url 'exm1:criar' %}">criar nova pessoa</a> </li>
+    <li><a href="{% url 'app_crud:criar' %}">criar nova pessoa</a> </li>
     
 </ul>        
     

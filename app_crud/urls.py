@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.conf.urls import url
 
-app_name = 'exm1'
+app_name = 'app_crud'
 urlpatterns = [
     #path('criar/', views.criar_pessoa, name='criar'),
     url(r'^criar$', views.criar_pessoa, name='criar'),

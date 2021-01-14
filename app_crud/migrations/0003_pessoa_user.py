@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('exm1', '0002_auto_20210107_1222'),
+        ('app_crud', '0002_auto_20210107_1222'),
     ]
 
     operations = [

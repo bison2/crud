@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('exm1', '0003_pessoa_user'),
+        ('app_crud', '0003_pessoa_user'),
     ]
 
     operations = [

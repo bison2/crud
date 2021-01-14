@@ -15,5 +15,5 @@ class Pessoa(models.Model):
         return self.nome
     
     def get_absolute_url(self):
-        return reverse('exm1:pessoa', args=[self.id])
+        return reverse('app_crud:pessoa', args=[self.id])
 
