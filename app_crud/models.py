@@ -16,4 +16,5 @@ class Pessoa(models.Model):
     
     def get_absolute_url(self):
         return reverse('app_crud:pessoa', args=[self.id])
+        #return reverse('app_crud:pessoa', kwargs={'id': self.id})
 

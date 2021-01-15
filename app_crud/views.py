@@ -1,10 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Pessoa
 from django.contrib.auth.models import  User
+from django.forms import ModelForm
 
 
 # Create your views here.
+
+class PessoaForm(ModelForm):
+   class Meta:
+      model = Pessoa
+      fields = ['nome','slug']
+
+
 def lista_pessoas(request):
     lista = Pessoa.objects.all().order_by('nome')
     print(lista)
