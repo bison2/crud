@@ -10,4 +10,8 @@
     
 </ul>
   
+<form method="post">{% csrf_token %}
+    Are you sure you want to delete "{{ object }}" ?<br/>
+    <input type="submit" value="Delete" />
+</form>
 {% endblock %}
