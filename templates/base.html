@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD</title>
+    {% include "base/css.html" %}
+    
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+    
+    {% include 'base/navbar.html' with nome_da_marca='CRUD' %}
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+    {% include "base/js.html" %}
+
+    {% include "base/footer.html" %}
+</body>
+</html>

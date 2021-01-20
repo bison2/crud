@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 {% block content %}
 <h1> O usuário logado é {{ user }}</h1>
 
@@ -10,9 +11,18 @@
     
 </ul>
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
+<form  method="post">{% csrf_token %}
+    <div class="form-group row ">
+        <div class="col-8 ">
+            
+            {{ form.as_p}}
+            
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Submit" class="bg-primary text-white" />
+        </div>
+    </div>
+   
 </form>
-  
+<button class="btn-group btn-lg"><a href="{% url 'app_crud:listas' %}">voltar</a></button>
 {% endblock %}

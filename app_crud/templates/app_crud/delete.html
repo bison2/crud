@@ -1,17 +1,30 @@
+
+{% extends "base.html" %}
 {% block content %}
 <h1> O usuário logado é {{ user }}</h1>
 
-<h2>A pessoa  {{ pessoa }} foi deletada.</h2>
-<h2> Id  {{ pessoa_id }} foi deletada.</h2>
+<h2>A pessoa  {{ object }} será deletada.</h2>
+<h2>O Id  {{ object.id }} será deletado.</h2>
 
-<ul>
-    <li><a href="{% url 'app_crud:listas' %}">Voltar:lista de pessoas</a> </li>
-    
-    
-</ul>
-  
+ 
 <form method="post">{% csrf_token %}
     Are you sure you want to delete "{{ object }}" ?<br/>
-    <input type="submit" value="Delete" />
+    {{ form.as_table }}
+    
+    <button class="btn btn-outline-danger">
+        <span style="font-size: 2em; color: rgb(255, 6, 6);">
+            <i class="fas fa-trash-alt"></i>
+          </span> </br>
+          Deletar
+    </button>
+    
+    <input type="submit" value="Delete" class="btn btn-outline-danger" />
 </form>
+<a href="{% url 'app_crud:listas' %}">
+<button class="btn btn-outline-primary">
+    <span style="font-size: 2em; color: rgb(49, 4, 250);">
+        <i class="fas fa-hand-point-left"></i>
+      </span> </br>
+    Voltar</button>
+</a>
 {% endblock %}
