@@ -1,6 +1,6 @@
 {% load static %}
 
-{% url 'listas' as listas_url %}
+{% url 'app_crud:listas' as listas_url %}
 {% url 'app_crud:pessoa' as pessoa_url %}
 {% url 'app_crud:criar' as criar_url %}
 {% url 'app_crud:editar' as editar_url %}
@@ -45,6 +45,8 @@
               <strong>Criar pessoa</strong></a>
           </li>
       
+          
+
           <li class="nav-item {% if request.path == editar_url %} active {% endif %}"> 
             <a class="nav-link text-white" href="{{ editar_url }}">
               <span style="font-size: 2em; color: rgba(255, 255, 255, 0.904);">
@@ -61,7 +63,7 @@
               </span>
               <strong>Deletar</strong></a>
           </li>
-          
+      
         </ul>
         
       </div>

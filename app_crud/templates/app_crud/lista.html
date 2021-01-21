@@ -2,55 +2,69 @@
 
 
 {% block content %}
-<h1>  O usuário logado é {{ user }}</h1>
-<h1> Este é a pagina listagem de pessoas no banco de dados.</h1>
-{% for pessoa in pessoas %}
-<h2>A pessoa  é {{ pessoa.nome}}.</h2>
+<div class="row ">
+  <div class="col-md-2">
+    <h5>  O usuário logado é {{ user }}</h5>
+  </div>
 
-<ul class="list-group list-group-flush">
-    <a href="{{ pessoa.get_absolute_url  }}">
-    <li class="list-group-item list-group-item-action">
-        <span style="font-size: 3em; color: rgba(20, 60, 192, 0.938);">
-            <i class="fas fa-id-badge"></i>
-          </span> 
-        detalhe de {{ pessoa.nome }} </li>
-    </a>
+  <div class="col-md-8">
+    <h4 class="text-center text-primary"> Este é a pagina listagem de pessoas no banco de dados.</h4>
+    <hr>
+    <hr>
 
-    <a href="{% url 'app_crud:pessoa' pessoa.id  %}">
-    <li class=" list-group-item list-group-item-action ">
-        <span style="font-size: 2em; color: rgb(251, 255, 0);">
-            <i class="fas fa-id-card"></i>
-          </span>
-        detalhe url {{ pessoa.nome }} </li>
-    </a>
+      {% for pessoa in pessoas %}
+      {% cycle '<h6 class="text-white bg-primary"> uma das pessoas</h6>' '<h6 class="text-warning bg-dark"> outra pessoa</h6>' %}
+      <h4 class="text-center bg-warning">A pessoa {{ forloop.counter }} é {{ pessoa.nome}}.</h4>
 
-    <a href="{% url 'app_crud:delete' pessoa.id %}">    <li class="list-group-item list-group-item-light list-group-item-action">
-        <span style="font-size: 2em; color: rgba(233, 6, 6, 0.938);">
-            <i class="fas fa-user-minus"></i>
-          </span>
-        deletar url{{ pessoa.nome }} </li>
-    </a>
+      <ul class="list-group list-group-flush">
+          <a href="{{ pessoa.get_absolute_url  }}">
+          <li class="list-group-item list-group-item-action">
+              <span style="font-size: 2em; color: rgba(20, 60, 192, 0.938);">
+                  <i class="fas fa-id-badge"></i>
+                </span> 
+              detalhe de {{ pessoa.nome }} </li>
+          </a>
 
-    <a href="{% url 'app_crud:editar' pessoa.id %}" >
-    <li class="list-group-item list-group-item-light list-group-item-action">
-        <span style="font-size: 2em; color: rgba(20, 60, 192, 0.938);">
-            <i class="fas fa-user-edit"></i>
-          </span>
-        editar {{pessoa.id}}  </li>
-    </a>
-    
-    
-</ul>
-{% endfor %}
+          <a href="{% url 'app_crud:pessoa' pessoa.id  %}">
+          <li class=" list-group-item list-group-item-action ">
+              <span style="font-size: 2em; color: rgb(251, 255, 0);">
+                  <i class="fas fa-id-card"></i>
+                </span>
+              detalhe {{ pessoa.nome }} via url </li>
+          </a>
 
-<h1>inserir nova pessoas</h1>
-<ul>
-    <li><a href="{% url 'app_crud:criar' %}">
-        <span style="font-size: 2em; color: rgba(7, 221, 89, 0.938);">
-            <i class="fas fa-user-plus"></i>
-          </span>
-        criar nova pessoa</a> </li>
-    
-</ul>        
-    
+          <a href="{% url 'app_crud:delete' pessoa.id %}"> 
+            <li class="list-group-item list-group-item-light list-group-item-action">
+              <span style="font-size: 2em; color: rgba(233, 6, 6, 0.938);">
+                <i class="fas fa-user-minus"></i>
+              </span>
+              deletar url{{ pessoa.nome }} </li>
+          </a>
+
+          <a href="{% url 'app_crud:editar' pessoa.id %}" >
+          <li class="list-group-item list-group-item-light list-group-item-action">
+              <span style="font-size: 2em; color: rgba(20, 60, 192, 0.938);">
+                <i class="fas fa-user-edit"></i>
+              </span>
+              editar {{pessoa.id}}  </li>
+          </a>
+          
+          
+      </ul>
+      {% endfor %}
+    </div>
+    <div class="col-md-2">
+      <h5>inserir nova pessoas</h5>
+      <ul class="list-group list-group-flush">
+          <a href="{% url 'app_crud:criar' %}">
+          <li class="list-group-item list-group-item-light list-group-item-action">
+              <span style="font-size: 2em; color: rgba(7, 221, 89, 0.938);">
+                  <i class="fas fa-user-plus"></i>
+                </span>
+              criar nova pessoa</li>
+          </a>
+          
+      </ul>        
+    </div>
+  </div>
 {% endblock content%}
