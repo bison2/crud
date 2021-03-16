@@ -29,9 +29,11 @@
 
 </table>
 
-    <a href="{% url 'app_crud:listas' %}">
-<button class="btn btn-outline-primary">Voltar  </button>
+    <a href="{% url 'app_crud:criar'  %}">
+<button class="btn btn-outline-primary">criar via url tag template</button>
     </a>
-    
+    <a href="{% url 'app_crud:editar' id=pessoa.id  %}">
+        <button class="btn btn-outline-primary">editar id=pessoa.id via url tag template passando argumento </button>
+            </a>
   
 {% endblock %}

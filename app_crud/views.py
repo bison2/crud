@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Pessoa
 from django.contrib.auth.models import  User
 from django.forms import ModelForm
+from django.urls import reverse
 #from urllib3 import request
 
 # Create your views here.
@@ -30,7 +31,8 @@ def pessoa_id(request, id):
                'pessoa':obj,
                }
    return render(request, 'app_crud/detail.html', context)
-
+   #return reverse('app_crud:detalhe', kwargs={'id':'self.id'})
+   #return HttpResponseRedirect(reverse('app_crud:detalhe', args=[id])) 
 
 def delete(request, id):
    #obj = Pessoa.objects.get(id=id)

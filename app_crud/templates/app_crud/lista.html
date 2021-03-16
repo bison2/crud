@@ -12,7 +12,7 @@
     <hr>
     <hr>
 
-      {% for pessoa in pessoas %}
+    {% for pessoa in pessoas %}
       {% cycle '<h6 class="text-white bg-primary"> uma das pessoas</h6>' '<h6 class="text-warning bg-dark"> outra pessoa</h6>' %}
       <h4 class="text-center bg-warning">A pessoa {{ forloop.counter }} é {{ pessoa.nome}}.</h4>
 
@@ -22,10 +22,10 @@
               <span style="font-size: 2em; color: rgba(20, 60, 192, 0.938);">
                   <i class="fas fa-id-badge"></i>
                 </span> 
-              detalhe de {{ pessoa.nome }} </li>
+              detalhe de {{ pessoa.nome }} usando get_absolute_url</li>
           </a>
 
-          <a href="{% url 'app_crud:pessoa' pessoa.id  %}">
+          <a href="{% url 'app_crud:detalhe' id=pessoa.id  %}">
           <li class=" list-group-item list-group-item-action ">
               <span style="font-size: 2em; color: rgb(251, 255, 0);">
                   <i class="fas fa-id-card"></i>
@@ -51,7 +51,7 @@
           
           
       </ul>
-      {% endfor %}
+     {% endfor %}
     </div>
     <div class="col-md-2">
       <h5>inserir nova pessoas</h5>
