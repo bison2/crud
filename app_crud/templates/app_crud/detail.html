@@ -1,14 +1,39 @@
+{% extends "base.html" %}
+
 {% block content %}
 <h1> O usuário logado é {{ user }}</h1>
 <h1> Este é a pagina detalhes das pessoas.</h1>
 <h2>A pessoa é {{ pessoa.nome}}.</h2>
 <h2>o  seu id é {{ pessoa.id }}</h2>
 <h2> o seu slug é {{pessoa.slug }} </h2>
-<ul>
-    
-    <li><a href="{% url 'app_crud:listas' %}">Voltar </a> </li>
-    
-    
-</ul>
+
+<table class="table table-striped ">
+    <caption>detalhes de {{pessoa.nome}}</caption>
+    <thead>
+        <tr>
+        <th>id</th>
+        <th>Nome</th>
+        <th>slug</th>
+        </tr>
+    </thead>
+
+    <tbody class="table table-hover">
+        <tr>
+        <td class="table-warning "><b>{{pessoa.id}}</b></td>
+        <td class="table-success"><strong>{{pessoa.nome}}</strong></td>
+        <td class="table-primary"><i>{{pessoa.slug}}</i></td>
+        </tr>
+    </tbody>
+
+
+
+</table>
+
+    <a href="{% url 'app_crud:criar'  %}">
+<button class="btn btn-outline-primary">criar via url tag template</button>
+    </a>
+    <a href="{% url 'app_crud:editar' id=pessoa.id  %}">
+        <button class="btn btn-outline-primary">editar id=pessoa.id via url tag template passando argumento </button>
+            </a>
   
 {% endblock %}

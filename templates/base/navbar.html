@@ -1,0 +1,71 @@
+{% load static %}
+
+{% url 'app_crud:listas' as listas_url %}
+{% url 'app_crud:pessoa' as pessoa_url %}
+{% url 'app_crud:criar' as criar_url %}
+{% url 'app_crud:editar' as editar_url %}
+{% url 'app_crud:delete' as delete_url %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary  mb-3">
+  <div class="container">
+      <a class="navbar-brand" href="{{listas_url}}">
+        <img src="{% static 'img/bootstrap.svg' %}" class='img-fluid' />
+      </br>
+      {% if nome_da_marca %} {{ nome_da_marca }} {% else %} C&oacute;digo Fluente eCommerce {% endif %}</a>
+      
+      <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span  class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse"  id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if request.path == listas_url %} active {% endif %}">
+            <a class="nav-link text-white " href="{{ listas_url }}">
+              <span style="font-size: 2em; color: rgba(254, 255, 255, 0.938);">
+                <i class="fas fa-house-user"></i>
+              </span> 
+              <strong>Home-lista </strong>
+              <span class="sr-only">(current)</span></a>
+          </li>
+              
+          <li class="nav-item {% if request.path == pessoa_url %} active {% endif %}">
+            <a class="nav-link text-white" href="{{ pessoa_url }}">
+              <span style="font-size: 2em; color: rgba(255, 255, 255, 0.904);">
+                <i class="fas fa-id-badge"></i>
+              </span>
+              <strong>Ver pessoa</strong>
+              </a>
+          </li>
+          <li class="nav-item {% if request.path == criar_url %} active {% endif %}">
+            <a class="nav-link text-white" href="{{ criar_url }}">
+              <span style="font-size: 2em; color: rgba(255, 255, 255, 0.904);">
+                <i class="fas fa-user-plus"></i>
+              </span>
+              <strong>Criar pessoa</strong></a>
+          </li>
+      
+          
+
+          <li class="nav-item {% if request.path == editar_url %} active {% endif %}"> 
+            <a class="nav-link text-white" href="{{ editar_url }}">
+              <span style="font-size: 2em; color: rgba(255, 255, 255, 0.904);">
+                <i class="fas fa-user-edit"></i>
+              </span>
+              <strong>Editar</strong>
+              </a> 
+          </li>
+          
+          <li class="nav-item {% if request.path == delete_url %} active {% endif %}">
+            <a class="nav-link text-white" href="{{ delete_url }}">
+              <span style="font-size: 2em; color: rgba(255, 255, 255, 0.904);">
+                <i class="fas fa-user-minus"></i>
+              </span>
+              <strong>Deletar</strong></a>
+          </li>
+      
+        </ul>
+        
+      </div>
+  </div> 
+</nav>
